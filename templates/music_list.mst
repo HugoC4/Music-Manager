@@ -1,0 +1,17 @@
+{{#each list as |albums artist|}}
+<li>
+	<a href="#"><i class="fa fa-users"></i> {{artist}} <i class="fa fa-angle-left pull-right"></i></a>
+	<ul class="treeview-menu">
+		{{#each albums.contents as |tracks album|}}
+		<li>
+			<a href="#"><i class="fa fa-fw fa-number fa-number-year">{{getYear album}}</i> {{getTitle album}} <i class="fa fa-angle-left pull-right"></i></a>
+			<ul class="treeview-menu">
+				{{#each tracks.contents as |value key|}}
+				<li><a href="#"><i class="fa fa-number">{{getNumber value.contents}}</i> {{getTitle value.contents}}</a></li>
+				{{/each}}
+			</ul>
+		</li>
+		{{/each}}
+	</ul>
+</li>
+{{/each}}

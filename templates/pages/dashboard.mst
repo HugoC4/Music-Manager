@@ -1,0 +1,186 @@
+<div class="row">
+	<div class="col-md-4">
+		<a href="#">
+			<div class="box box-widget widget-user">
+				<!-- Add the bg color to the header using any of the bg-* classes -->
+				<div class="widget-user-header bg-eq">
+					<h3 class="widget-user-username">Music</h3>
+					<h5 class="widget-user-desc">Official Albums</h5>
+				</div>
+				<div class="widget-user-image">
+					<i class="fa fa-fw fa-music fa-4x"></i>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-sm-4 border-right">
+						<div class="description-block">
+							<h5 class="description-header">{{music.artists}}</h5>
+							<span class="description-text">Artists</span>
+						</div>
+						<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-4 border-right">
+							<div class="description-block">
+								<h5 class="description-header">{{music.albums.count}}</h5>
+								<span class="description-text">Albums</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-4">
+							<div class="description-block">
+								<h5 class="description-header">{{music.tracks.count}}</h5>
+								<span class="description-text">Tracks</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+					</div>
+				<!-- /.row -->
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-md-4">
+		<a href="#">
+			<div class="box box-widget widget-user">
+				<!-- Add the bg color to the header using any of the bg-* classes -->
+				<div class="widget-user-header bg-grooves">
+					<h3 class="widget-user-username">Vinyl Rips</h3>
+					<h5 class="widget-user-desc">The Real Stuff</h5>
+				</div>
+				<div class="widget-user-image">
+					<span class="fa-stack fa fa-fw fa-4x">
+					  <i class="fa fa-circle fa-stack-1x"></i>
+					  <i class="fa fa-circle fa-stack-1x"></i>
+					</span>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-sm-4 border-right">
+							<div class="description-block">
+								<h5 class="description-header">{{rips.artists}}</h5>
+								<span class="description-text">Artists</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-4 border-right">
+							<div class="description-block">
+								<h5 class="description-header">{{rips.albums.count}}</h5>
+								<span class="description-text">Albums</span>
+							</div>
+						<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-4">
+							<div class="description-block">
+								<h5 class="description-header">{{rips.tracks.count}}</h5>
+								<span class="description-text">Tracks</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-md-4">
+		<a href="#">
+			<div class="box box-widget widget-user">
+				<!-- Add the bg color to the header using any of the bg-* classes -->
+				<div class="widget-user-header bg-rec">
+					<h3 class="widget-user-username">Recordings</h3>
+					<h5 class="widget-user-desc">Own Content</h5>
+				</div>
+				<div class="widget-user-image">
+					<i class="fa fa-fw fa-record fa-4x"></i>
+				</div>
+				<div class="box-footer">
+					<div class="row">
+						<div class="col-sm-6 border-right">
+							<div class="description-block">
+								<h5 class="description-header">{{recordings.albums.count}}</h5>
+								<span class="description-text">Albums</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+						<div class="col-sm-6">
+							<div class="description-block">
+								<h5 class="description-header">{{recordings.tracks.count}}</h5>
+								<span class="description-text">Tracks</span>
+							</div>
+							<!-- /.description-block -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Newest Albums</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>						
+						<tr>
+							<th>Artist</th>
+							<th>Album</th>
+							<th>Added</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each music.albums.newest as |item key|}}
+						<tr>
+						  <td>{{item.artist}}</td>
+						  <td>{{getTitle item.title}}</td>
+						  <td>{{getShortDate item.created}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Newest Rips</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>						
+						<tr>
+							<th>Artist</th>
+							<th>Album</th>
+							<th>Added</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each rips.albums.newest as |item key|}}
+						<tr>
+						  <td>{{item.artist}}</td>
+						  <td>{{getTitle item.title}}</td>
+						  <td>{{getShortDate item.created}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+{{#each list as |tracks identifier|}}
+<li>
+  <a href="#"><i class="fa fa-fw fa-number fa-number-year">{{getIdYear identifier}}</i> {{getIdTitle identifier}} <i class="fa fa-angle-left pull-right"></i></a>
+  <ul class="treeview-menu">
+	{{#each tracks.contents as |track key|}}
+		<li><a href="#"><i class="fa fa-number">{{getNumber track.contents}}</i> {{getTitle track.contents}}</a></li>
+	{{/each}}              
+  </ul>
+</li>
+{{/each}}
